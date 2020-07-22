@@ -2,7 +2,11 @@
 
 **setup**
 As this experiment does not need external data or models (excluding the iobserve-analysis branch 
-'scalability-usability-1'), the source code below can for example be pasted in the AnalysisMain.main(...) method.
+'scalability-usability-1'). 
+To run this experiment, run the code below. If error occur try substituting the analysis call in the main-method of 
+'./iobserve-analysis/analysis-cli/.../AnalysisMain' with the aforementioned calls. The source code utilized by the 
+calls below is located in the folder 
+'./iobserve-analysis/analysis/src/main/java/org/iobserve/analysis/userbehavior/test'.
 
 ```java
 	// variance in user groups = 0
