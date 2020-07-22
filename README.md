@@ -1,6 +1,6 @@
 # iObserve Analysis Experiments
 This repository contains all files of the accuracy and scalability experiments with iobserve analysis, including:
- - Documentation, explaining the exact experiment makeup and discussing the results
+ - Documentation, explaining the exact experiment setup and discussing the results
  - PCM models and monitoring data, as input for the experiments
  - A script to automate consecutive experiment runs
  - Experiment results, summarized and as raw output files

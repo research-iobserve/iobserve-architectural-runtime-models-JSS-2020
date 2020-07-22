@@ -11,76 +11,87 @@
 \usepackage{array} 
 \usepackage{blindtext} 
 \begin{document}
-\title{Usage Modelling\\accuracy iobserve-analysis}
+\title{Usage Behaviour Modelling\\accuracy iobserve-analysis}
 \date{}
 \maketitle
 
-\section{Detecting and Representing User Behaviours}
-Each setup execution is evaluated with a random number of user sessions. This random number has several constraints depending on the setup.\\
-Simple Sequence, Simple Loop, Overlapping Iteration and Nested Loops are evaluated with a random number between 1 - 200 \\
-Simple Branch, Nested Branches and Loop Within Branch the amount of user sessions has to be a minimum of $number\ of\ branch\ transitions * 10$ so there is at least one session covering each branch transition. This results in 20 - 200 user sessions. \\
-Branch Within Loop the amount of user sessions has to be $2^{number\ of\ Loops} * user\ Factor$ so each branch transition in the loop has at least one session covering it. This results in 4 - 200 user sessions. \\
-%\begin{itemize}
-%	\item \textbf{SimpleSequence}: 1 - 200
-%	\item \textbf{SimpleBranch}: $number\ of\ branch\ transitions * 10$ - 200 $\rightarrow$ 20 - 200
-%	\item \textbf{SimpleLoop}: 1 - 200
-%	\item \textbf{OverlappingIteration}: 1 - 200
-%	\item \textbf{BranchWithinBranch}: $number\ of\ branch\ transitions * 10$ - 200 $\rightarrow$ 20 - 200
-%	\item \textbf{LoopWithinBranch}: $number\ of\ branch\ transitions * 10$ - 200 $\rightarrow$ 20 - 200
-%	\item \textbf{LoopWithinLoop}: 1 - 200
-%	\item \textbf{BranchWithinLoop}: $2^{number\ of\ Loops} * user\ Factor$ $\rightarrow$ 4 - 200
-%\end{itemize}
+	\section{General}
+	\textbf{Code:} \url{https://github.com/research-iobserve/iobserve-analysis/tree/scalability-usability-1}\\
+	\textbf{Experiment data and results:} \url{https://github.com/research-iobserve/iobserve-architectural-runtime-models-JSS-2020/tree/master/scalability_experiment}
+	
+	\section{Experiments:}
+	The experiments on accuracy of usage behaviour modelling with iobserve-analysis is split up in two sub-experiments. \textbf{Detecting and Representing User Behaviours} evaluates if simple or nested patterns in the user behaviour are detected correctly and whether the created Usage Model represents the patterns correctly. Additionally the accuracy of detecting and representing workload specifications is evaluated. \textbf{Detecting User Groups} evaluates the clustering of similar usage behaviour into user groups.
 
-In addition to the number of user sessions, the execution of each setup creates several randomized attributes. To increase the overall coverage of possible attribute combinations, each test setup is executed 5000 times, instead of the 500 times proposed in the original work.
+	\section{Detecting and Representing User Behaviour}
+	\subsection{Detecting and Representing Behaviour Patterns}
+	To evaluate the accuracy of finding patterns in the user behaviour, test cases for each of the possible patterns are defined. For each execution of a test case the usage behaviour to be analysed, as well as a correct reference usage model is created at random, according to the constraints of the test case:
+	\begin{itemize}
+		\item \textbf{Simple Sequence}: A single call sequence with 1 to 5 calls, without loops or branches.
+		\item \textbf{Simple Branch}: A branch with 2 to 5 transitions, each containing a single call. After the branch, there is a single collective call.
+		\item \textbf{Simple Loop}: A loop with 2 to 5 iterations, containig a call sequence with 1 to 5 calls.
+		\item \textbf{Overlapping Iteration}: 1 - 200
+		\item \textbf{Branch Within Branch}: A branch with 2 to 3 branch transitions. Each transition contains a call sequence with a single call, followed by another branch with 2 to 3 branch transitions, containing a call sequence with a single call.
+		\item \textbf{Loop Within Branch}: A branch with 2 to 3 branch transitions, each containing a call and a loop with 2 to 3 iterations. The loop is made up of a call sequence with a single call.
+		\item \textbf{Loop Within Loop}: A loop with 2 to 4 iterations, containing a loop with 2 to 4 iterations followed by a call sequence with 1 to 2 calls. The internal loop contains a call sequence with a single call.
+		\item \textbf{Branch Within Loop}: A loop with 2 to 3 iterations, containing a branch with two branch transitions. Each transition contains a call sequence with a single call.
+	\end{itemize}
+	The amount of user sessions in the created usage behaviour also depends on the test case:\\
+	Simple Sequence, Simple Loop, Overlapping Iteration and Nested Loops create a usage behaviour with between 1 - 200 user sessions.\\
+	Simple Branch, Nested Branches and Loop Within Branch the amount of user sessions has to be a minimum of $number\ of\ branch\ transitions * 10$ so there is at least one session covering each branch transition. This results in 20 - 200 user sessions.\\
+	Branch Within Loop the amount of user sessions has to be $2^{number\ of\ Loops} * user\ Factor$ so each branch transition in the loop has at least one session covering it. This results in 4 - 200 user sessions.\\
+	To achieve a good coverage of possible combinations of constraints, each test case is executed 5000 times.\\
+	After a run of iobserve-analysis, the resulting Usage Model is compared to the reference model, created by the test case. As metrics to measure similarity we use the Jaccard Coefficient (JC) and the Spearman?s Rank Correlation Coefficient (SRCC). Because the approach claims to create exact representations of the user behaviour we only consider a JC and SCC of 1 as an exact representation.
+	\subsection{Results}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c||c|c|c||c|c|c|}
+			\hline
+			\multirow{2}{*}{\textbf{RQ}}
+			 & \multicolumn{3}{c||}{\textbf{JC}} & \multicolumn{3}{c|}{\textbf{SCC}} \\
+			 \cline{2-7}
+			 & Min. & Max. & Mean & Min. & Max. & Mean \\
+			\hhline{|=======|}
+			Simple Sequence & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 \\
+			\hline
+			Simple Branch & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 \\
+			\hline
+			Simple Loop & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 \\
+			\hline
+			Overlapping Iteration & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 \\
+			\hline
+			Nested Branches & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 \\
+			\hline
+			Loop Within Branch & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 \\
+			\hline
+			Nested Loops & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 \\
+			\hline
+			Branch Within Loop & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 \\
+			\hline
+		\end{tabular}
+	\end{table}
 
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|c||c|c|c||c|c|c|}
-		\hline
-		\multirow{2}{*}{\textbf{RQ}}
-		 & \multicolumn{3}{c||}{\textbf{JC}} & \multicolumn{3}{c|}{\textbf{SCC}} \\
-		 \cline{2-7}
-		 & Min. & Max. & Mean & Min. & Max. & Mean \\
-		\hhline{|=======|}
-		Simple Sequence & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 \\
-		\hline
-		Simple Branch & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 \\
-		\hline
-		Simple Loop & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 \\
-		\hline
-		Overlapping Iteration & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 \\
-		\hline
-		Nested Branches & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 \\
-		\hline
-		Loop Within Branch & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 \\
-		\hline
-		Nested Loops & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 \\
-		\hline
-		Branch Within Loop & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 \\
-		\hline
-	\end{tabular}
-\end{table}
-
-
-\section{Representing Workload Specifications}
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|>{\centering\arraybackslash}p{6cm}||>{\centering\arraybackslash}p{5cm}|}
-		\hline
-		\textbf{Evaluated Workload Specification} & \textbf{RME} \\
-		\hhline{|==|}
-		Open Workload Specification & 0.0\%  \\
-		\hline
-		Closed Workload Specification & 13.1\%  \\
-		\hline
-	\end{tabular}
-\end{table}
+	\subsection{Representing Workload Specifications}
+	To evaluate the correct representation of workload specifications, we use the same setup as test case 'Simple Sequence'. The test case is executed with either an open workload specification or an closed workload specification.\\
+	Because we only use an approximation for the population count of closed workload specifications, but an exact measurement of the mean inter arrival time, we expect no deviation for open workload specifications. The think time of a closed workload is passed by the user and therefore not considered within the equation.\\
+	We measure the relative measurement error (RME) between the approach?s generated workload specification and a reference. The reference is obtained during the creation of the usage behaviour for the test case. A RME value close to 0 indicates a low measurement error and therefore good representation of the workload specification.
+	\subsubsection{Results}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|>{\centering\arraybackslash}p{6cm}||>{\centering\arraybackslash}p{5cm}|}
+			\hline
+			\textbf{Evaluated Workload Specification} & \textbf{RME} \\
+			\hhline{|==|}
+			Open Workload Specification & 0.0\%  \\
+			\hline
+			Closed Workload Specification & 13.1\%  \\
+			\hline
+		\end{tabular}
+	\end{table}
 
 \section{Detecting User Groups}
 MC and SSE presented here are the average results from 100 runs of the setup described in the master thesis. Values in columns C1, C2, C3 (and C4) only show an single exemplary result of one clustering run. The results are similar to the ones presented in the original masters thesis. With only two exceptions the metric values are consistently lower.\\
 
 \subsection{variance in user groups = 0}
-%Similar results to the ones presented in the master thesis. The calculated SSE metric results of the first two setups vary slightly, while the result of the third setup is $\frac{1}{5}$ less then the SSE from the masters thesis. 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|c||c|c|c|c||c|c|}
