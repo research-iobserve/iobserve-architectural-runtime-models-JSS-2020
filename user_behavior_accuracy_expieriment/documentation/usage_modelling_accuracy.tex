@@ -24,12 +24,12 @@
 
 	\section{Detecting and Representing User Behaviour}
 	\subsection{Detecting and Representing Behaviour Patterns}
-	To evaluate the accuracy of finding patterns in the user behaviour, test cases for each of the possible patterns are defined. For each execution of a test case the usage behaviour to be analysed, as well as a correct reference usage model is created at random, according to the constraints of the test case:
+	To evaluate the accuracy of finding patterns in the user behaviour, we define test cases for each of the possible patterns. For each execution of a test case the usage behaviour to be analysed, as well as a corresponding correct reference usage model, is created according to the constraints of the test case:
 	\begin{itemize}
 		\item \textbf{Simple Sequence}: A single call sequence with 1 to 5 calls, without loops or branches.
 		\item \textbf{Simple Branch}: A branch with 2 to 5 transitions, each containing a single call. After the branch, there is a single collective call.
 		\item \textbf{Simple Loop}: A loop with 2 to 5 iterations, containig a call sequence with 1 to 5 calls.
-		\item \textbf{Overlapping Iteration}: 1 - 200
+		\item \textbf{Overlapping Iteration}: A loop with 2 OR 3 iterations. Call sequences that share 4 to 6 overlapping calls. One iterated sequence consists of more calls than the other.
 		\item \textbf{Branch Within Branch}: A branch with 2 to 3 branch transitions. Each transition contains a call sequence with a single call, followed by another branch with 2 to 3 branch transitions, containing a call sequence with a single call.
 		\item \textbf{Loop Within Branch}: A branch with 2 to 3 branch transitions, each containing a call and a loop with 2 to 3 iterations. The loop is made up of a call sequence with a single call.
 		\item \textbf{Loop Within Loop}: A loop with 2 to 4 iterations, containing a loop with 2 to 4 iterations followed by a call sequence with 1 to 2 calls. The internal loop contains a call sequence with a single call.
@@ -88,50 +88,55 @@
 		\end{tabular}
 	\end{table}
 
-\section{Detecting User Groups}
-MC and SSE presented here are the average results from 100 runs of the setup described in the master thesis. Values in columns C1, C2, C3 (and C4) only show an single exemplary result of one clustering run. The results are similar to the ones presented in the original masters thesis. With only two exceptions the metric values are consistently lower.\\
-
-\subsection{variance in user groups = 0}
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|c||c|c|c|c||c|c|}
-		\hline
-		UG & UGM & C1 & C2 & C3 & MC & SSE \\
-		\hhline{|=======|}
-		CR & 50\% & 0 & 4000 & 0 & \multirow{3}{*}{0.0\%} & \multirow{3}{*}{177.039830} \\
-		SKM & 25\% & 0 & 0 & 2000 & & \\
-		SEM & 25\% & 2000 & 0 & 0 & & \\
-		\hhline{|=======|}
-		CR & 25\% & 0 & 0 & 2000 & \multirow{3}{*}{0.0\%} & \multirow{3}{*}{190.368080} \\
-		SKM & 50\% & 4000 & 0 & 0 & & \\
-		SEM & 25\% & 0 & 2000 & 0 & & \\
-		\hhline{|=======|}
-		CR & 25\% & 2000 & 0 & 0 & \multirow{3}{*}{0.0\%} & \multirow{3}{*}{202.309114} \\
-		SKM & 25\% & 0 & 2000 & 0 & & \\
-		SEM & 50\% & 0 & 0 & 4000 & & \\
-		\hhline{|=======|}
-	\end{tabular}
-\end{table}
-
-\subsection{variance in user groups = 10}
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|c||c|c|c|c|c||c|c|}
-		\hline
-		UG & UGM & C1 & C2 & C3 & C4 & MC & SSE \\
-		\hhline{|========|}
-		CR & 50\% & 0 & 4000 & 0 & 0 & \multirow{3}{*}{6.008625\%} & \multirow{3}{*}{141.317894} \\
-		SKM & 25\% & 2000 & 0 & 0 & 0 & & \\
-		SEM & 25\% & 0 & 0 & 641 & 1359 & & \\
-		\hhline{|========|}
-		CR & 25\% & 0 & 0 & 0 & 2000 & \multirow{3}{*}{10.737249\%} & \multirow{3}{*}{134.331437} \\
-		SKM & 50\% & 886 & 3114 & 0 & 0 & & \\
-		SEM & 25\% & 0 & 0 & 2000 & 0 & & \\
-		\hhline{|========|}
-		CR & 25\% & 0 & 0 & 0 & 2000 & \multirow{3}{*}{13.772875\%} & \multirow{3}{*}{159.150583} \\
-		SKM & 25\% & 0 & 0 & 2000 & 0 & & \\
-		SEM & 50\% & 1215 & 2785 & 0 & 0 & & \\
-		\hhline{|========|}
-	\end{tabular}
+	\section{Detecting User Groups}
+	To evaluate the accuracy of detecting user groups within usage behaviour, we want to find out how accurately iobserve-analysis clustering assigns user sessions of the same user group (UG) to the same cluster. We define three exemplary behaviours of three user groups (Customer (CR), Store Manager (SEM), Stock Manager (SKM)).\\
+	Within the experiment we use three different user group mixes, where one user group is represented by double as many user sessions as the two other groups. This enables to evaluate whether the user group mix affects the detection accuracy. The call sequence of each user session is randomly generated according to the behaviour of its user group.\\
+	The 'variance in user groups' value defines in how far the clustering algorithm is allowed to vary the amount of clusters from a predefined amount. A variance value of 0 allows for no variation, which in our case is 3 fixed clusters, because of the 3 defined user groups. A variance value of 10 allows for a variation of $\pm 10 $ from the predefined value, which in our case is between 2 and 13 clusters (2 because the minimum amount of clusters is 2). The predefined amount of clusters is normally gathered by first reading an existing UsageModel, but for this experiment is fixed to 3.\\
+	All inputs for this experiment are generated automatically, no external inputs, like models or monitoring data are needed.\\
+	As metrics we measure the percentage of misclassified user sessions (MC) and sum of the squared error (SSE). 
+	\subsection{Results}
+	MC and SSE presented here are the average results from 100 runs of the setup. Values in columns C1, C2, C3 (and C4) only show an single exemplary result of one clustering run.
+	\subsubsection{variance in user groups = 0}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c||c|c|c|c||c|c|}
+			\hline
+			UG & UGM & C1 & C2 & C3 & MC & SSE \\
+			\hhline{|=======|}
+			CR & 50\% & 0 & 4000 & 0 & \multirow{3}{*}{0.0\%} & \multirow{3}{*}{177.039830} \\
+			SKM & 25\% & 0 & 0 & 2000 & & \\
+			SEM & 25\% & 2000 & 0 & 0 & & \\
+			\hhline{|=======|}
+			CR & 25\% & 0 & 0 & 2000 & \multirow{3}{*}{0.0\%} & \multirow{3}{*}{190.368080} \\
+			SKM & 50\% & 4000 & 0 & 0 & & \\
+			SEM & 25\% & 0 & 2000 & 0 & & \\
+			\hhline{|=======|}
+			CR & 25\% & 2000 & 0 & 0 & \multirow{3}{*}{0.0\%} & \multirow{3}{*}{202.309114} \\
+			SKM & 25\% & 0 & 2000 & 0 & & \\
+			SEM & 50\% & 0 & 0 & 4000 & & \\
+			\hhline{|=======|}
+		\end{tabular}
+	\end{table}
+	
+	\subsubsection{variance in user groups = 10}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c||c|c|c|c|c||c|c|}
+			\hline
+			UG & UGM & C1 & C2 & C3 & C4 & MC & SSE \\
+			\hhline{|========|}
+			CR & 50\% & 0 & 4000 & 0 & 0 & \multirow{3}{*}{6.008625\%} & \multirow{3}{*}{141.317894} \\
+			SKM & 25\% & 2000 & 0 & 0 & 0 & & \\
+			SEM & 25\% & 0 & 0 & 641 & 1359 & & \\
+			\hhline{|========|}
+			CR & 25\% & 0 & 0 & 0 & 2000 & \multirow{3}{*}{10.737249\%} & \multirow{3}{*}{134.331437} \\
+			SKM & 50\% & 886 & 3114 & 0 & 0 & & \\
+			SEM & 25\% & 0 & 0 & 2000 & 0 & & \\
+			\hhline{|========|}
+			CR & 25\% & 0 & 0 & 0 & 2000 & \multirow{3}{*}{13.772875\%} & \multirow{3}{*}{159.150583} \\
+			SKM & 25\% & 0 & 0 & 2000 & 0 & & \\
+			SEM & 50\% & 1215 & 2785 & 0 & 0 & & \\
+			\hhline{|========|}
+		\end{tabular}
 \end{table}
 \end{document}
