@@ -8,8 +8,8 @@ The folder also contains the latex file and graphics used to create the pdf docu
 To get started first read the document to get an idea of the experiment makeup.
 
 **'setup'**
-Contains all data and scripts needed to replicate the experiment (excluding the iobserve-analysis branch 
-'scalability-usability-1').
+Contains all data and scripts needed to replicate the experiment (excluding iobserve-analysis 
+'https://github.com/Nicolas-Boltz/iobserve-analysis-JSS-2020').
 
 **'results'**
 Contains all data that resulted in running the experiment.

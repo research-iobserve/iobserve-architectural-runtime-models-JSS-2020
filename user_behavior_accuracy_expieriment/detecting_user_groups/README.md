@@ -1,30 +1,11 @@
 # Detecting User Groups Experiment
 
 **setup**
-As this experiment does not need external data or models (excluding the iobserve-analysis branch 
-'scalability-usability-1'). 
-To run this experiment, run the code below. If error occur try substituting the analysis call in the main-method of 
-'./iobserve-analysis/analysis-cli/.../AnalysisMain' with the aforementioned calls. The source code utilized by the 
-calls below is located in the folder 
+As this experiment does not need external data or models (excluding iobserve-analysis 
+'https://github.com/Nicolas-Boltz/iobserve-analysis-JSS-2020'). 
+To run this experiment, run the main function of the './iobserve-analysis/experiments-cli/.../ExperimentsMain' class.
+The source code utilized by the calls below is located in the folder 
 './iobserve-analysis/analysis/src/main/java/org/iobserve/analysis/userbehavior/test'.
-
-```java
-	// variance in user groups = 0
-	ClusteringEvaluation clusteringEval = new ClusteringEvaluation(4000, 2000, 2000, 0, 100);
-    clusteringEval.evaluateTheClustering();
-	clusteringEval = new ClusteringEvaluation(2000, 4000, 2000, 0, 100);
-    clusteringEval.evaluateTheClustering();
-    clusteringEval = new ClusteringEvaluation(2000, 2000, 4000, 0, 100);
-    clusteringEval.evaluateTheClustering();
-    
-	// variance in user groups = 10
-    clusteringEval = new ClusteringEvaluation(4000, 2000, 2000, 10, 100);
-    clusteringEval.evaluateTheClustering();
-    clusteringEval = new ClusteringEvaluation(2000, 4000, 2000, 10, 100);
-    clusteringEval.evaluateTheClustering();
-    clusteringEval = new ClusteringEvaluation(2000, 2000, 4000, 10, 100);
-    clusteringEval.evaluateTheClustering();
-```
 
 **'results' folder**
 Contains all data that resulted in running the experiment.
