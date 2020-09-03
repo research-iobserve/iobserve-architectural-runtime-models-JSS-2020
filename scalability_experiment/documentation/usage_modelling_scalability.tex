@@ -16,7 +16,17 @@
 	\textbf{Experiment data and results:} \url{https://github.com/research-iobserve/iobserve-architectural-runtime-models-JSS-2020/tree/master/scalability_experiment}
 	
 	\section{Set ups:}
-	Each described setup is run 10 times. The median is calculated for each set of results.
+	For the experiment we repeatedly increase the number of accesses to the modelled system by a factor of 10, starting with 1.\\
+	The increased number of accesses is reflected in the model by an increased number of monitoring entries.
+	A model with a particular number of monitoring entries is called a \emph{model configuration}.
+	A \emph{model configuration} can be executed by iobserve-analysis.\\
+	A single execution of each model configuration from 1 to 100000 is called one \emph{run}.
+	A total of 10 \emph{runs} were made for each experiment set up (equal\_events\_x\_users and x\_different\_events\_one\_user). 
+	The median is taken from the values of the 10 resulting data sets of each executed \emph{model configuration}.\\
+	One dataset contains the total duration of each of the filters TPreprocess and TRuntimeUpdate. 
+	The total duration of a filter is gathered by \emph{calculating the sum} of the time required for each \emph{iteration} through the filter.
+	The TPreprocess filter is iterated 100 times for a model configuration with 100 monitoring entries.
+	The TRuntimeUpdate filter is iterated only once for each model configuration.
 	
 	\subsection{equal\_events\_x\_users:}
 	The same call executed from X users successively. The executed call has the following signature:\\ \emph{org.cocome.cloud.logic.webservice.cashdeskline.cashdesk.CashDesk.startSale(java.lang.String,long)}
@@ -117,10 +127,10 @@
 	As all elements of a branch transition could be in one big loop, it can be assumed that $e_l \leq e_b$, for worst case time complexity. Which results in $O(b*e_b^{3} + b*e_b^{2} + b*e_b*l) \Rightarrow O(b*e_b^{3} + b*e_b*l)$\\
 	\\
 	$T_{ArchitecturalModelUpdate}$ iterates the tree structure to create the elements of the architectural model.\\
-	This shows a worst case time complexity of $O(b*e_b + l*e_l)$.
+	This shows a worst case time complexity of $O(b*(e_b + e_l))$.
 	
 	\paragraph{Combined:}
-	Adding and reducing the time complexities of the four parts results in a complexity of $O(s^2*e_s + s*e_s*b^2 + b*e_b^{3} + b*e_b*l + b*e_b + l*e_l)$. Appling the assumptions made for $T_{BranchDetection}$ and $T_{LoopDetection}$ results in a combined worst case complexity of $\mathbf{O(s^2*e_s + s*e_s*b^2 + b*e_s^{3} + b*e_s*l)}$.
+	Adding and reducing the time complexities of the four parts results in a complexity of $O(s^2*e_s + s*e_s*b^2 + b*e_b^{3} + b*e_b*l + b*(e_b + e_l))$. Appling the assumptions made for $T_{BranchDetection}$ and $T_{LoopDetection}$ results in a combined worst case complexity of $\mathbf{O(s^2*e_s + s*e_s*b^2 + b*e_s^{3} + b*e_s*l)}$.
 	
 	\subsection{equal\_events\_x\_users:}
 	\begin{figure}[H]
