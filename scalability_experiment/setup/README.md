@@ -10,14 +10,14 @@ different input size.
 Contains some input files that are used to warmup the JVM.
 
 ## start_10_times_100000.sh:
-The script can be used to execute the full experiment automatically on an Linux based machine.
+The script can be used to execute the full experiment automatically on a Linux based machine.
 
 **How to use:**
 Paths should be altered according to the location of the script and iobserve distribution.
 Additionally comment out the 'this.traceMetaPort.send((TraceMetadata) element);' call in RecordSwitch execute method,
 as it calls TNetworkLink, which takes a lot of time and is not needed for this experiment.
 	
-An distribution of iobserve has to be build, extracted and the call in the script (under comment '# call iobserve') 
+A distribution of iobserve has to be build, extracted and the call in the script (under comment '# call iobserve') 
 altered accordingly.
 This can be done by calling the gradle wrapper './gradlew build install' located in the base folder of 
 './iobserve-analysis/'.
@@ -35,5 +35,5 @@ warm up the jvm. Warmup can be commented out in 'AnalysisMain.java' in folder '.
 A new folder is created for each run of the expermient, stating the timestamp of the start of the script.
 Inside a new folder for each experiment ('equal_events_X_users', 'X_different_events_one_user') is created.
 Results of each experiment run are saved in an own folder, named with increasing numbers.
-The execution time of each iteration of a iobserve filter is measured and saved in a .csv file named according to the 
+The execution time of each iteration of an iobserve filter is measured and saved in a .csv file named according to the 
 filter.
