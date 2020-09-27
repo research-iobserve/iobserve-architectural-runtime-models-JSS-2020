@@ -1,7 +1,7 @@
 # Detecting User Groups Experiment
 
 **setup**
-As this experiment does not need external data or models (excluding iobserve-analysis 
+As this experiment does not need external data or models (except for iobserve-analysis 
 'https://github.com/Nicolas-Boltz/iobserve-analysis-JSS-2020'). 
 To run this experiment, run the main function of the './iobserve-analysis/experiments-cli/.../ExperimentsMain' class.
 The source code utilized by the calls below is located in the folder 
