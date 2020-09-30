@@ -1,7 +1,7 @@
 # User Behavior Accuracy Expieriment
 
 ** 'documentation' folder **
-Contains a pdf document, which gives an overview of the experiment set up and a summary of the results.
+Contains a pdf document, which gives an overview of the experiment setup and a summary of the results.
 The folder also contains the latex file used to create the pdf document.
 
 To get started read the document to get an idea of the experiment.
