@@ -97,14 +97,14 @@
 	For this experiment set up $\mathbf{c}$ and $\mathbf{o}$ vary, while $\mathbf{n}$ grows linearly. This overall still results in a complexity of $O(n * (c + o))$. As in this experiment there are only 13 different class/operation pairs available, $c$ and $o$ can be treated like fixed values, which reduces the time complexity to $\mathbf{O(n)}$.
 	\newpage
 	\section{TRuntimeUpdate (TEntryEventSequence):}
-	This filter loads the PCM UsageModel, uses the incoming set of user sessions to do a UserBehaviourTransformation, and writes the resulting PCM UsageModel to the disk. As times for loading and writing may vary depending on the underlying system and current use of the disk, only the UserBehaviourTransformation is regarded by this evaluation.\\
+	This filter loads the PCM UsageModel, uses the incoming set of user sessions to do a UserBehaviorTransformation, and writes the resulting PCM UsageModel to the disk. As times for loading and writing may vary depending on the underlying system and current use of the disk, only the UserBehaviorTransformation is regarded by this evaluation.\\
 	\\
 	Unlike the TPreprocess filter, which is called multiple times, the TRuntimeUpdate filter is only called \textbf{once} for each run of a scaling step ($10^0$ / $10^1$ / $10^2$ / $10^3$ / $10^4$ / $10^5$).\\
 	\\
 	For worst case time complexity $m$ and $k$ can be treated as constants, as they do not scale with the other variables. The maximum amount of services provided by the system $m$ usually reaches a plateau at 1000 and the amount of clusters $k$ does not exceed two digit values.
 
-	\subsection{Breakdown of user behaviour transformation}
-	The time complexity of the usage behaviour transformation is made up of the following parts:\\
+	\subsection{Breakdown of user behavior transformation}
+	The time complexity of the usage behavior transformation is made up of the following parts:\\
 	\\
     $T_{UserGroupDetection}$ identifies the distinct calls within the user sessions and then clusters the user sessions into user groups using the X-Means clustering algorithm. After clustering, it sets the workload intensity of each user group. Depending on how iobserve-analysis is set up, this is done by either calculating the number of concurrent users or the inter-arrival time of users from the user group.\\
     This results in worst-case time complexity of $O(s^{2}*e_s)$ for $T_{UserGroupDetection}$.\\
@@ -118,7 +118,7 @@
 	As $b^2 > blog(b)$ and $e_s \geq e_b$, due to all entry calls of a user session either being exactly represented by a single, or split into multiple branch transitions.\\
 	$\Rightarrow O(slog(s) + s*e_s*b^2 + b^2*e_s) \Rightarrow O(s*log(s) + s*e_s*b^2)$.\\
 %	Alternative:
-%	For each created EntryCallSequenceModel, a tree structure called branch model is created, by aggregating the contained EntryCalls. Iterating over the tree, the likelihood of occurrence for each branch is calculated. After that the branch model is compacted, by combining branches with equal ends, removing any unnecessary redundant branch behaviour.\\
+%	For each created EntryCallSequenceModel, a tree structure called branch model is created, by aggregating the contained EntryCalls. Iterating over the tree, the likelihood of occurrence for each branch is calculated. After that the branch model is compacted, by combining branches with equal ends, removing any unnecessary redundant branch behavior.\\
 %$O(k * (s*log(s) + s*e_s*b*log(b) + s*e_s*b + 2*b^2*e_b + b^2)) \Rightarrow O(s*log(s) + s*e_s*b*log(b) + b^2*e_b)$\\
 %As $b^2 > b*log(b)$ and $e_s \geq e_b$, due to all elements of a session either being exactly represented by, or split into multiple branch transitions.\\
 %$\Rightarrow O(s*log(s) + s*e_s*b^2 + b^2*e_s) \Rightarrow O(s*log(s) + s*e_s*b^2)$.
