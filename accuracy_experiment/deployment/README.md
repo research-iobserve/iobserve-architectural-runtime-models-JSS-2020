@@ -4,9 +4,15 @@ The experiment checks if deployment and undeployment events in iobserve-analysis
 The experiment is made up of different sub-experiments, which each executes a certain part of the deployment or undeployment process.
 These sub-experiments can be combined to simulate different deployment and undeployment use cases.
 
-The **'pcm'** folder contains the palladio models used to run iobserve-analysis for this experiment.
-The **'experiments'** folder contains an kieker log folder for each sub-experiment which contains the kieker files,
+The **'input/pcm'** folder contains the palladio models used to run iobserve-analysis for this experiment.
+The **'input/experiments'** folder contains a kieker log folder for each sub-experiment which contains the kieker files,
 that should be used for input when running a sub-experiment in iobserve-analysis.
+
+The **'result'** folder contains a simplified overview of whether each sub-experiment was run successfully and showed 
+the expected results which are described below.
+
+To run these experiments first follow the instructions on 'Setting up iObserve to replicate the experiments' in 
+'../../README.md'.
 
 ## Sub-Experiment setup
 Events: d1...d5 = Deployment events for node 1 to 5
