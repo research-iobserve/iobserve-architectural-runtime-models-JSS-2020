@@ -1,6 +1,6 @@
 # Experiment input
 
-A explanation of the experiment set ups and model configurations is provided in the experiment documentation 
+A explanation of the experiment setups and model configurations is provided in the experiment documentation 
 (../../documentation/usage_modelling_scalability.pdf).
 
 The files in the log directories consist of exactly one .map and at least one .dat files.

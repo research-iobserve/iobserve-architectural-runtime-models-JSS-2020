@@ -1,11 +1,11 @@
 # Detecting User Groups Experiment
 
 **setup**
-This experiment has no input folder, as it does not need external data or models (except for iobserve-analysis 
-'https://github.com/Nicolas-Boltz/iobserve-analysis-JSS-2020'). 
-To run this experiment, run the main function of the './iobserve-analysis/experiments-cli/.../ExperimentsMain' class.
+This experiment has no input folder, as it does not need external data due to data being randomly generated during the experiment 
+(except for iobserve-analysis). 
+To run this experiment, run the main function of the './code/iobserve-analysis/experiments-cli/.../ExperimentsMain' class.
 The source code utilized by the calls below is located in the folder 
-'./iobserve-analysis/analysis/src/main/java/org/iobserve/analysis/userbehavior/test'.
+'./code/iobserve-analysis/analysis/src/main/java/org/iobserve/analysis/userbehavior/test'.
 
 **'results' folder**
 Contains all data that resulted in running the experiment.

@@ -20,7 +20,7 @@
 	\textbf{Experiment data and results:} \url{https://github.com/research-iobserve/iobserve-architectural-runtime-models-JSS-2020/tree/master/scalability_experiment}
 	
 	\section{Experiments:}
-	The experiments on accuracy of usage behavior modeling with iobserve-analysis is split up in two sub-experiments. \textbf{Detecting and Representing User Behaviors} evaluates if simple or nested patterns in the user behavior are detected correctly and whether the created Usage Model represents the patterns correctly. Additionally the accuracy of detecting and representing workload specifications is evaluated. \textbf{Detecting User Groups} evaluates the clustering of similar usage behavior into user groups.
+	The experiments on accuracy of usage behavior modeling with iobserve-analysis is split up in two sub-experiments. \textbf{Detecting and Representing User Behaviors} evaluates if simple or nested patterns in the user behavior are detected correctly and whether the created Usage Model represents the patterns correctly. Additionally the accuracy of detecting and representing workload specifications is evaluated. \textbf{Detecting and Representing User Groups} evaluates the clustering of similar usage behavior into user groups.
 
 	\section{Detecting and Representing User Behavior}
 	\subsection{Detecting and Representing Behavior Patterns}
@@ -40,7 +40,7 @@
 	Simple Branch, Nested Branches and Loop Within Branch the amount of user sessions has to be a minimum of $number\ of\ branch\ transitions * 10$ so there is at least one session covering each branch transition. This results in 20 - 200 user sessions.\\
 	Branch Within Loop the amount of user sessions has to be $2^{number\ of\ Loops} * user\ Factor$ so each branch transition in the loop has at least one session covering it. This results in 4 - 200 user sessions.\\
 	To achieve a good coverage of possible combinations of constraints, each test case is executed 5000 times.\\
-	After a run of iobserve-analysis, the resulting Usage Model is compared to the reference model, created by the test case. As metrics to measure similarity we use the Jaccard Coefficient (JC) and the Spearman?s Rank Correlation Coefficient (SRCC). Because the approach claims to create exact representations of the user behavior we only consider a JC and SCC of 1 as an exact representation.
+	After a run of iobserve-analysis, the resulting Usage Model is compared to the reference model, created by the test case. As metrics to measure similarity we use the Jaccard Coefficient (JC) and the Spearman's Rank Correlation Coefficient (SRCC). Because the approach claims to create exact representations of the user behavior we only consider a JC and SCC of 1 as an exact representation.
 	\subsection{Results}
 	\begin{table}[H]
 		\centering
@@ -88,7 +88,7 @@
 		\end{tabular}
 	\end{table}
 
-	\section{Detecting User Groups}
+	\section{Detecting and Representing User Groups}
 	To evaluate the accuracy of detecting user groups within usage behavior, we want to find out how accurately iobserve-analysis clustering assigns user sessions of the same user group (UG) to the same cluster. We define three exemplary behaviors of three user groups (Customer (CR), Store Manager (SEM), Stock Manager (SKM)).\\
 	Within the experiment we use three different user group mixes, where one user group is represented by double as many user sessions as the two other groups. This enables to evaluate whether the user group mix affects the detection accuracy. The call sequence of each user session is randomly generated according to the behavior of its user group.\\
 	The 'variance in user groups' value defines in how far the clustering algorithm is allowed to vary the amount of clusters from a predefined amount. A variance value of 0 allows for no variation, which in our case is 3 fixed clusters, because of the 3 defined user groups. A variance value of 10 allows for a variation of $\pm 10 $ from the predefined value, which in our case is between 2 and 13 clusters (2 because the minimum amount of clusters is 2). The predefined amount of clusters is normally gathered by first reading an existing UsageModel, but for this experiment is fixed to 3.\\

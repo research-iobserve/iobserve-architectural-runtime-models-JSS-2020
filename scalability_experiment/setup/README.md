@@ -20,9 +20,9 @@ as it calls TNetworkLink, which takes a lot of time and is not needed for this e
 A distribution of iobserve has to be build, extracted and the call in the script (under comment '# call iobserve') 
 altered accordingly.
 This can be done by calling the gradle wrapper './gradlew build install' located in the base folder of 
-'./iobserve-analysis/'.
-The distribution is created in './iobserve-analysis/analysis-cli/build/distributions/'.
-If errors exist while building, calling './gradlew clean' can help. 
+'./code/iobserve-analysis/'.
+The distribution is created in './code/iobserve-analysis/analysis-cli/build/distributions/'.
+If errors exist while building, calling './code/iobserve-analysis/gradlew clean' can help. 
 Possible build errors in 'rac_creator' can be ignored, as long as 'analysis' and 'analysis-cli' build without errors.
 
 The PCM models and monitoring data used, are located in folder 'pcm' or 'testdata'.
