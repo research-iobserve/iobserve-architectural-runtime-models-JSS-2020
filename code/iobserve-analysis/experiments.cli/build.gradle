@@ -1,0 +1,22 @@
+apply plugin: 'application'
+
+mainClassName='org.iobserve.experiments.cli.ExperimentsMain'
+
+dependencies {
+	compile project(":analysis")
+	compile "com.beust:jcommander:1.60"
+}
+
+install {
+    repositories.mavenInstaller {
+        pom.version = version
+        pom.groupId = 'org.iobserve'
+        pom.artifactId = 'experiments.cli'
+    }
+}
+
+ext {
+	toolsDir = "../tools/"
+	toolPcmLoader = "eclipse_lib_loader.jar"
+	toolPcmLoaderConfigFile = "config_eclipse_lib_loader.xml"
+}
