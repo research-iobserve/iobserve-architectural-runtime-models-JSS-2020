@@ -28,8 +28,6 @@ import org.iobserve.analysis.model.ResourceEnvironmentModelProvider;
 import org.iobserve.analysis.model.SystemModelProvider;
 import org.iobserve.analysis.model.UsageModelProvider;
 import org.iobserve.analysis.model.correspondence.ICorrespondence;
-import org.iobserve.analysis.userbehavior.test.ClusteringEvaluation;
-import org.iobserve.analysis.userbehavior.test.TEntryEventSequenceTest;
 import org.iobserve.analysis.utils.ExecutionTimeLogger;
 
 import com.beust.jcommander.JCommander;

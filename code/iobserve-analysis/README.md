@@ -9,7 +9,8 @@ This repository contains the sources for the iobserve analysis including
 - splitter separates monitoring data streams by host
 - rac.creator this tool allows to create a RAC mapping based on
   monitoring data, a PCM model and a supplementary mapping file.
-- test.setup test tooling
+- experiments code for starting the user behavior and user group
+  accuracy experiments.
 
 The code is in a prototype stage and not fully functional, especially, as
 some parts are still located in other SVN repositories.

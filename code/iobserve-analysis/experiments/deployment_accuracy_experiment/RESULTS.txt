@@ -1,6 +1,0 @@
-Allocation: as expected
-Replication: as expected
-Dereplication: as expected
-Deallocation: as expected
-Migration-A: as expected
-Migration-B: as expected
