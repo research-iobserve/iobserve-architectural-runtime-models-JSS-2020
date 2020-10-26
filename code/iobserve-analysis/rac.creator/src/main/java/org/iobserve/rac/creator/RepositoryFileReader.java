@@ -37,7 +37,7 @@ import org.xml.sax.SAXException;
 
 /**
  *
- * @author Nicolas Boltz -- initial contribution
+ * @author Nicolas Boltz, Robert Heinrich -- initial contribution
  * @author Reiner Jung
  *
  */

@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlType;
  * Correspondence between something.
  *
  * @author Alessandro Guisa
- * @author Nicolas Boltz
+ * @author Robert Heinrich
  *
  */
 @XmlRootElement(name = "Correspondent")

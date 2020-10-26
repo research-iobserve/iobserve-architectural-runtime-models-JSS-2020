@@ -20,7 +20,7 @@ package org.iobserve.analysis.userbehavior.data;
  * branches. It also contains the user group's specific workload and occurrence likelihood of the
  * user group
  *
- * @author David Peter, Robert Heinrich
+ * @author David Peter, Robert Heinrich, Nicolas Boltz
  */
 public class BranchModel {
 

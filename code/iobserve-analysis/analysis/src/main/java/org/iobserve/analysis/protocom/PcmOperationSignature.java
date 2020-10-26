@@ -26,6 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  * Representing an operation signature mapping between on operation in code and a seff.
  *
  * @author Alessandro Guisa
+ * @author Robert Heinrich
  *
  */
 @XmlRootElement(name = "OperationSignature")

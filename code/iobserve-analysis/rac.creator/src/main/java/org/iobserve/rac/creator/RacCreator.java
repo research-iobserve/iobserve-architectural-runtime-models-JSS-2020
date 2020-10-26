@@ -51,7 +51,7 @@ import org.xml.sax.SAXException;
  * from this convention have to be explicitly declared in the system mapping like this: Name/Path in
  * monitoring data - Name/Path in repository
  *
- * @author Nicolas Boltz
+ * @author Nicolas Boltz, Robert Heinrich
  *
  *************************************************************************************************/
 public class RacCreator {

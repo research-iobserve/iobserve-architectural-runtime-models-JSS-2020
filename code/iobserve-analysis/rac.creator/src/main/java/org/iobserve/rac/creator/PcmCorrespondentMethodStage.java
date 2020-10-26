@@ -26,7 +26,7 @@ import teetime.framework.OutputPort;
 
 /**
  *
- * @author Nicolas Boltz
+ * @author Nicolas Boltz, Robert Heinrich
  * @author Reiner Jung
  *
  */

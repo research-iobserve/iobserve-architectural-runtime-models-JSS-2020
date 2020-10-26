@@ -22,7 +22,7 @@ import java.util.List;
  * Represents the branch transitions of a branch element. Used to represent the branched behavior of
  * branches that were subsequently merged.
  *
- * @author David Peter, Robert Heinrich
+ * @author David Peter, Robert Heinrich, Nicolas Boltz
  */
 public class BranchTransitionElement {
 

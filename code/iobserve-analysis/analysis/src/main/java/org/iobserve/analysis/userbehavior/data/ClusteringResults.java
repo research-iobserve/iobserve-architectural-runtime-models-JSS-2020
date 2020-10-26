@@ -19,7 +19,7 @@ package org.iobserve.analysis.userbehavior.data;
  * It contains the results of the clustering: The assignments of the clustered data to the clusters
  * and the clustering metrics.
  *
- * @author David Peter, Robert Heinrich
+ * @author David Peter, Robert Heinrich, Nicolas Boltz
  */
 public class ClusteringResults {
 

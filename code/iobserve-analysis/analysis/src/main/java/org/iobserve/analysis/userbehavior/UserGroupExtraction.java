@@ -37,7 +37,7 @@ import weka.core.Instances;
  * represents each user session as counts of called operation signatures. It states the number of
  * calls of each distinct operation signature occurring within the user sessions
  *
- * @author David Peter, Robert Heinrich
+ * @author David Peter, Robert Heinrich, Nicolas Boltz
  */
 public class UserGroupExtraction {
 

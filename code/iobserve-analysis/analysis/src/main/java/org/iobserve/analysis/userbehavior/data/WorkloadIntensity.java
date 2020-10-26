@@ -19,7 +19,7 @@ package org.iobserve.analysis.userbehavior.data;
  * Contains the workload intensity values for a user group. The interarrivalTimeOfUserSessions is
  * used for an open workload and the avgNumberOfConcurrentUsers is used for a closed workload
  *
- * @author David Peter, Robert Heinrich
+ * @author David Peter, Robert Heinrich, Nicolas Boltz
  */
 public class WorkloadIntensity {
 

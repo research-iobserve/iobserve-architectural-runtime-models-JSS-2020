@@ -35,6 +35,7 @@ import org.iobserve.analysis.utils.StringUtils;
  *
  * @author Alesanndro Guisa
  * @author Nicolas Boltz
+ * @author Robert Heinrich
  *
  */
 @XmlRootElement(name = "PcmEntity")

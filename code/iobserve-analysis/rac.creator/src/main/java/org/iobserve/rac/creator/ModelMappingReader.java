@@ -24,7 +24,7 @@ import java.util.Map;
 /**
  *
  *
- * @author Nicolas Boltz -- initial contribution
+ * @author Nicolas Boltz, Robert Heinrich -- initial contribution
  * @author Reiner Jung
  *
  */

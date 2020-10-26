@@ -26,6 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  * Methods description.
  *
  * @author Alessandro Guisa
+ * @author Robert Heinrich
  *
  */
 @XmlRootElement(name = "CorrespondentMethod")

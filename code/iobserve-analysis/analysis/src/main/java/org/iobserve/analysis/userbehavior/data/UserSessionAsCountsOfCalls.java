@@ -18,7 +18,7 @@ package org.iobserve.analysis.userbehavior.data;
 /**
  * Represents a user session's call sequence as counts of called operation signatures.
  *
- * @author David Peter, Robert Heinrich
+ * @author David Peter, Robert Heinrich, Nicolas Boltz
  */
 public class UserSessionAsCountsOfCalls {
 

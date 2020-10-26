@@ -29,6 +29,7 @@ import javax.xml.bind.annotation.XmlType;
  * Mapping class.
  *
  * @author Alessandro Guisa
+ * @author Robert Heinrich
  *
  */
 @XmlRootElement(name = "PcmMapping")

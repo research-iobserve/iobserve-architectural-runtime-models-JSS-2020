@@ -40,8 +40,9 @@ import kieker.common.record.flow.IFlowRecord;
 import kieker.common.record.flow.trace.operation.AfterOperationEvent;
 
 /**
+ * Logger class for logging the execution times of the iobserve filters.
  *
- * @author unknown
+ * @author Nicolas Boltz, Robert Heinrich
  *
  */
 public final class ExecutionTimeLogger {

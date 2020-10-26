@@ -1,4 +1,4 @@
-# User Behavior Accuracy Expieriment
+# Accuracy Experiment
 
 ** 'documentation' folder **
 Contains a pdf document, which gives an overview of the experiment setup and a summary of the results.

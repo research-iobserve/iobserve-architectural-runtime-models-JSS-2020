@@ -23,7 +23,7 @@ import weka.core.Instances;
  * Calculates the quality of a clustering to value a clustering. Therefore, the sum of squared
  * errors is used
  *
- * @author David Peter, Robert Heinrich
+ * @author David Peter, Robert Heinrich, Nicolas Boltz
  */
 public class ClusteringMetrics {
 
