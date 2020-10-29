@@ -48,7 +48,7 @@ public final class UserBehaviorAccuracyExperiment {
     private static final int NUMBER_OF_ITERATIONS_PER_TEST = 5000;//1, 500;
     private static final int STEP_SIZE = 1;
 
-    private static final String TEST_FOLDER = "D:\\Dokumente\\Uni\\HiWi\\UsageBehaviourTransformationTest\\TEntryEventSequenceTest\\";
+    private static final String TEST_FOLDER = "D:\\iobserve-architectural-runtime-models-JSS-2020\\accuracy_experiment\\user_behavior\\";
     private static final String TEST_DATA_FOLDER = TEST_FOLDER + "input\\";
     private static final String TEST_RESULTS_FOLDER = TEST_FOLDER + "results\\";
     private static final String OUTPUT_USAGE_MODEL = TEST_DATA_FOLDER + "OutputModel.usagemodel";

@@ -85,7 +85,7 @@ public class RecordSwitch extends AbstractConsumerStage<IMonitoringRecord> {
             /** Comment out traceMetaPort.send() call for scalability testing of usage model creation,
              *  as TNetworkLink takes a lot of time and is not needed for testing. **/
             if (element instanceof TraceMetadata) {
-                this.traceMetaPort.send((TraceMetadata) element);
+                //this.traceMetaPort.send((TraceMetadata) element);
             }
         } else if (element instanceof KiekerMetadataRecord) {
             final KiekerMetadataRecord metadata = (KiekerMetadataRecord) element;

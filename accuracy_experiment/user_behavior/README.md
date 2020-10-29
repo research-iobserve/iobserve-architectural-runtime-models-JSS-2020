@@ -1,12 +1,13 @@
 # Detecting and Representing User Behavior Experiment
 
+##### **Setup**
 The folder **'input'** contains the files for the **pcm** folder of iobserve-analysis. To run this experiment, 
-run the main function of the './code/iobserve-analysis/experiments-cli/.../ExperimentsMain' class.
+run the main function of the *'./code/iobserve-analysis/experiments/.../ExperimentsMain'* class.
 The source code utilized by the calls below is located in the folder 
-'./code/iobserve-analysis/analysis/src/main/java/org/iobserve/analysis/userbehavior/test'.
+*'./code/iobserve-analysis/experiments/src/main/java/org/iobserve/experiments/accuracy/userbehavior'*.
 
-**Paths in TEntryEventSequenceTest have be altered according to the location of the input folder and desired result 
-output folder.**
+**Paths in UserBehaviorAccuracyExperiment have be altered according to the location of the input folder and desired result output folder.**
 
-The folder **'results'** contains the raw result files of one run of the experiment, that have been used to create the 
+##### **'results' folder**
+This folder contains the raw result files of the one run of the experiment, that have been used to create the 
 documentation.

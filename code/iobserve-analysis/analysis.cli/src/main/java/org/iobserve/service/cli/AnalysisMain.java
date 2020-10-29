@@ -108,10 +108,10 @@ public final class AnalysisMain {
             commander.usage();
             System.exit(1);
         } else {
-//            File warmupMonitoringDirectory = new File("D:\\Dokumente\\Uni\\HiWi\\iobserve\\iobserve\\iobserve-analysis\\analysis\\res\\warmup_dir\\kieker");
-//            File warmupPcmModelDirectory = new File("D:\\Dokumente\\Uni\\HiWi\\iobserve\\iobserve\\iobserve-analysis\\analysis\\res\\warmup_dir\\pcm");
-//            this.executeWithConfig("Warmup", warmupMonitoringDirectory, warmupPcmModelDirectory, 0, 0, false);
-//            ExecutionTimeLogger.resetTimes();
+            //File warmupMonitoringDirectory = new File("D:\\iobserve-architectural-runtime-models-JSS-2020\\scalability_experiment\\setup\\warmup");
+            //File warmupPcmModelDirectory = new File("D:\\iobserve-architectural-runtime-models-JSS-2020\\scalability_experiment\\setup\\pcm");
+            //this.executeWithConfig("Warmup", warmupMonitoringDirectory, warmupPcmModelDirectory, 0, 0, false);
+            //ExecutionTimeLogger.resetTimes();
             
             
             this.checkDirectory(this.monitoringDataDirectory, "Kieker log", commander);

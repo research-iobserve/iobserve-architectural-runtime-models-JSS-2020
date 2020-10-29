@@ -67,7 +67,7 @@ public class UserGroupDetectionAccuracyExperiment {
     	this.groupSplit.add((stockManagerCount * 100) / sessionCount);
     	this.groupSplit.add((storeManagerCount * 100) / sessionCount);
     	
-    	this.outputPath = "D:\\Dokumente\\Uni\\HiWi\\UsageBehaviourTransformationTest\\ClusteringEvaluation\\varianceOfUserGroups = " + varianceValue + "\\";
+    	this.outputPath = "D:\\iobserve-architectural-runtime-models-JSS-2020\\accuracy_experiment\\user_groups\\results\\varianceOfUserGroups = " + varianceValue + "\\";
     }
 
     /**
