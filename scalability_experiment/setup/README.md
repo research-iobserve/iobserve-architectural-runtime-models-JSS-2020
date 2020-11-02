@@ -13,7 +13,7 @@ Contains some input files that are used to warmup the JVM.
 The script can be used to execute the full experiment automatically on a Linux based machine.
 
 ##### **How to use:**
-Paths should be altered according to the location of the script and iobserve distribution.
+Paths should be altered according to the location of the script, iobserve distribution and used operating system.
 	
 A distribution of iobserve has to be build, extracted and the call in the script (under comment '# call iobserve') 
 altered accordingly.
@@ -35,3 +35,11 @@ Inside a new folder for each experiment (*'equal_events_X_users', 'X_different_e
 Results of each experiment run are saved in an own folder, named with increasing numbers.
 The execution time of each iteration of an iobserve filter is measured and saved in a .csv file named according to the 
 filter.
+
+## generate_experiment_input.sh:
+A script that can be used to generate new input files to run the '**start_10_times_100000.sh**' script with.
+The '**kieker.map**' file is needed for each setup and is copied to each of the newly generated setup folders.
+
+Paths should be altered according to the location of the script, *'kieker.map'* file and used operating system.
+
+This script takes a *lot of time* to generate new randomized input files and should only be run if necessary.
