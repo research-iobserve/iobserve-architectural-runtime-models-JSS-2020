@@ -41,15 +41,32 @@
 				\item org.cocome.cloud.logic.webservice.cashdeskline.cashdesk.CashDesk.selectPaymentMode(java.lang.String,long,java.lang.String)
 				\item org.cocome.cloud.logic.webservice.cashdeskline.cashdesk.CashDesk.finishSale(java.lang.String,long)
 				\item org.cocome.cloud.logic.webservice.store.StoreManager.createStockItem(long,org.cocome.tradingsystem.inventory.application.store.ProductWithStockItemTO)
+				\item org.cocome.tradingsystem.inventory.application.store.StoreServer.createStockItem(long,org.cocome.tradingsystem.inventory.application.store.ProductWithStockItemTO)
 				\item org.cocome.tradingsystem.inventory.application.store.StoreServer.getProductWithStockItem(long,long)
 				\item org.cocome.tradingsystem.inventory.application.store.StoreServer.getStore(long)
 				\item org.cocome.tradingsystem.inventory.data.enterprise.StoreEnterpriseQueryProvider.queryEnterpriseByName(java.lang.String)
+				\item org.cocome.tradingsystem.inventory.data.enterprise.StoreEnterpriseQueryProvider.queryProductByBarcode(long)
 				\item org.cocome.tradingsystem.inventory.data.enterprise.TradingEnterprise.initTradingEnterprise()
 				\item org.cocome.tradingsystem.inventory.data.store.EnterpriseStoreQueryProvider.queryStockItem(long,long)
 				\item org.cocome.tradingsystem.inventory.data.store.EnterpriseStoreQueryProvider.queryStoreById(long)
 				\item org.cocome.tradingsystem.inventory.data.store.Store.initStore()
 				\item org.cocome.tradingsystem.inventory.data.store.StoreDatatypesFactory.fillStoreWithEnterpriseTO(org.cocome.tradingsystem.inventory.data.store.IStore)
 	\end{itemize}}}
+%	public void org.cocome.tradingsystem.inventory.application.store.StoreServer.createStockItem(long,org.cocome.tradingsystem.inventory.application.store.ProductWithStockItemTO);org.cocome.tradingsystem.inventory.application.store.StoreServer
+%	public java.util.Set org.cocome.cloud.logic.webservice.cashdeskline.cashdesk.barcodescanner.BarcodeScanner.sendProductBarcode(java.lang.String,long,long);org.cocome.cloud.logic.webservice.cashdeskline.cashdesk.barcodescanner.BarcodeScanner
+%	public org.cocome.tradingsystem.inventory.application.store.ProductWithStockItemTO org.cocome.tradingsystem.inventory.application.store.StoreServer.getProductWithStockItem(long,long);org.cocome.tradingsystem.inventory.application.store.StoreServer
+%	public java.util.Set org.cocome.cloud.logic.webservice.cashdeskline.cashdesk.CashDesk.startSale(java.lang.String,long);org.cocome.cloud.logic.webservice.cashdeskline.cashdesk.CashDesk
+%	public void org.cocome.tradingsystem.inventory.data.store.Store.initStore();org.cocome.tradingsystem.inventory.data.store.Store
+%	public java.util.Set org.cocome.cloud.logic.webservice.cashdeskline.cashdesk.CashDesk.selectPaymentMode(java.lang.String,long,java.lang.String);org.cocome.cloud.logic.webservice.cashdeskline.cashdesk.CashDesk
+%	public org.cocome.tradingsystem.inventory.data.enterprise.ITradingEnterprise org.cocome.tradingsystem.inventory.data.enterprise.StoreEnterpriseQueryProvider.queryEnterpriseByName(java.lang.String);org.cocome.tradingsystem.inventory.data.enterprise.StoreEnterpriseQueryProvider
+%	public void org.cocome.tradingsystem.inventory.data.enterprise.TradingEnterprise.initTradingEnterprise();org.cocome.tradingsystem.inventory.data.enterprise.TradingEnterprise
+%	public org.cocome.tradingsystem.inventory.data.enterprise.IProduct org.cocome.tradingsystem.inventory.data.enterprise.StoreEnterpriseQueryProvider.queryProductByBarcode(long);org.cocome.tradingsystem.inventory.data.enterprise.StoreEnterpriseQueryProvider
+%	public org.cocome.tradingsystem.inventory.application.store.StoreWithEnterpriseTO org.cocome.tradingsystem.inventory.data.store.StoreDatatypesFactory.fillStoreWithEnterpriseTO(org.cocome.tradingsystem.inventory.data.store.IStore);org.cocome.tradingsystem.inventory.data.store.StoreDatatypesFactory
+%	public org.cocome.tradingsystem.inventory.application.store.StoreWithEnterpriseTO org.cocome.tradingsystem.inventory.application.store.StoreServer.getStore(long);org.cocome.tradingsystem.inventory.application.store.StoreServer
+%	public java.util.Set org.cocome.cloud.logic.webservice.cashdeskline.cashdesk.CashDesk.finishSale(java.lang.String,long);org.cocome.cloud.logic.webservice.cashdeskline.cashdesk.CashDesk
+%	public org.cocome.tradingsystem.inventory.data.store.IStore org.cocome.tradingsystem.inventory.data.store.EnterpriseStoreQueryProvider.queryStoreById(long);org.cocome.tradingsystem.inventory.data.store.EnterpriseStoreQueryProvider
+%	public org.cocome.tradingsystem.inventory.data.store.IStockItem org.cocome.tradingsystem.inventory.data.store.EnterpriseStoreQueryProvider.queryStockItem(long,long);org.cocome.tradingsystem.inventory.data.store.EnterpriseStoreQueryProvider
+%	public void org.cocome.cloud.logic.webservice.store.StoreManager.createStockItem(long,org.cocome.tradingsystem.inventory.application.store.ProductWithStockItemTO);org.cocome.cloud.logic.webservice.store.StoreManager
 	Due to the very limited amount of different calls and random creation of call sequences, some successive sections may be identical, or may only be made up of the same successive call, resulting in loops and branches in the created UsageModel.
 	
 	\section{Key}
@@ -67,7 +84,7 @@
 		\item $e_b$: number of elements in the largest branch transition; \vspace{-0,25cm}
 		\item $e_l$: number of elements in the largest loop;
 	\end{itemize}
-	
+	\newpage
 	\section{TPreprocess}
 	The TPreprocess filter is an abstract superordinate filter, which preprocesses the incoming monitoring data. It is made up of two connected sub-filters:
 	
