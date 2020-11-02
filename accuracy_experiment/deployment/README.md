@@ -25,10 +25,10 @@ the expected results which are described below.
                                             ud1...ud5 = Undeployment events for node 1 to 5
 		
 **Recommended order of execution/Use cases:**
-                                            allocation -> replication -> dereplication -> deallocation
-											allocation -> migration-A -> dereplication -> deallocation
-											allocation -> migration-B -> dereplication -> deallocation
-
+                                           1. allocation -> replication -> dereplication -> deallocation
+										   2. allocation -> migration-A -> dereplication -> deallocation
+										   3. allocation -> migration-B -> dereplication -> deallocation
+_______________________________________________________________________________________________________________________
 - ##### **allocation: d1,d2,d3,d4,d5**
   Deploys the org.cocome.tradingsystem.inventory.application.Store to each of the resource containers "node-X" (X=1..5).
 
@@ -44,15 +44,15 @@ ________________________________________________________________________________
   *Assumes model with resource containers "node-X" (X=1..5).*
   
   **Expected result:** Each resource container "node-X" (X=1..5) has org.cocome.cloud.logic.webservice.cashdeskline.cashdeskservice
-  deployed on them. New corresponding assembly contexts in system and allocation model.
+  deployed on it. New corresponding assembly contexts in system and allocation model.
 _______________________________________________________________________________________________________________________
-- ##### **dereplication: ud5,ud4,ud3,ud2**
+- ##### **dereplication: ud5,ud4,ud3,ud2,ud1**
   Undeploys org.cocome.cloud.logic.webservice.cashdeskline.cashdeskservice from the existing resource containers.
   
-  *Assumes a model which already contains components from allocation and replication test.*
+  *Assumes a model which already contains components from allocation and replication experiment.*
   
   **Expected result:** Each resource container "node-X" (X=1..5) does not have 
-  org.cocome.cloud.logic.webservice.cashdeskline.cashdeskservice deployed on them anymore. Corresponding assembly contexts
+  org.cocome.cloud.logic.webservice.cashdeskline.cashdeskservice deployed on it anymore. Corresponding assembly contexts
   in system and allocation model removed.
 _______________________________________________________________________________________________________________________
 - ##### **deallocation: ud5,ud4,ud3,ud2,ud1**
@@ -66,7 +66,7 @@ ________________________________________________________________________________
   Migration of org.cocome.cloud.logic.webservice.cashdeskline.cashdeskservice with short time of undeployment. 
   New resource containers are not created or removed from resource environment.
   
-  *Assumes a model which already contains components from allocation test.*
+  *Assumes a model which already contains components from allocation experiment.*
   
   **Expected result:** org.cocome.cloud.logic.webservice.cashdeskline.cashdeskservice is deployed on resource container "node-5".
   New corresponding assembly context in system and allocation model.
@@ -75,12 +75,12 @@ ________________________________________________________________________________
   Overlapping migration of org.cocome.cloud.logic.webservice.cashdeskline.cashdeskservice. 
   New resource containers are not created or removed from resource environment.
   
-  *Assumes a model which already contains components from allocation test.*
+  *Assumes a model which already contains components from allocation experiment.*
   
   **Expected result:** org.cocome.cloud.logic.webservice.cashdeskline.cashdeskservice is deployed on resource container "node-5".
   New corresponding assembly context in system and allocation model.
 _______________________________________________________________________________________________________________________
  
-- **Additional information** to kieker and pcm data mapping.
+##### **Additional information** to kieker and pcm data mapping.
   rac/kieker: org.cocome.tradingsystem.inventory.application.store.StoreServer --> pcm: org.cocome.tradingsystem.inventory.application.Store
   rac/kieker: org.cocome.cloud.logic.webservice.cashdeskline.cashdesk.CashDesk --> pcm: org.cocome.cloud.logic.webservice.cashdeskline.cashdeskservice  
